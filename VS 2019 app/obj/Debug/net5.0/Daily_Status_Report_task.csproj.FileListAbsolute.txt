@@ -1,0 +1,134 @@
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.AssemblyInfoInputs.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.AssemblyInfo.cs
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.csproj.CoreCompileInputs.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\appsettings.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Daily_Status_Report_task.exe
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Daily_Status_Report_task.deps.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Daily_Status_Report_task.runtimeconfig.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Daily_Status_Report_task.runtimeconfig.dev.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\ref\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Daily_Status_Report_task.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\staticwebassets\Daily_Status_Report_task.StaticWebAssets.Manifest.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\staticwebassets\Daily_Status_Report_task.StaticWebAssets.xml
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\scopedcss\bundle\Daily_Status_Report_task.styles.css
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.RazorTargetAssemblyInfo.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.csproj.CopyComplete
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\ref\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.genruntimeconfig.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\obj\Debug\net5.0\Daily_Status_Report_task.csproj.AssemblyReference.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\appsettings.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Daily_Status_Report_task.exe
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Daily_Status_Report_task.deps.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Daily_Status_Report_task.runtimeconfig.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Daily_Status_Report_task.runtimeconfig.dev.json
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\ref\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Daily_Status_Report_task.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.AssemblyInfoInputs.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.AssemblyInfo.cs
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.csproj.CoreCompileInputs.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\staticwebassets\Daily_Status_Report_task.StaticWebAssets.Manifest.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\staticwebassets\Daily_Status_Report_task.StaticWebAssets.xml
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\scopedcss\bundle\Daily_Status_Report_task.styles.css
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.RazorTargetAssemblyInfo.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.csproj.CopyComplete
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\ref\Daily_Status_Report_task.dll
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.pdb
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.genruntimeconfig.cache
+C:\Users\Gurpreet\Desktop\Daily_Status_Report_task\VS 2019 app\obj\Debug\net5.0\Daily_Status_Report_task.csproj.AssemblyReference.cache
