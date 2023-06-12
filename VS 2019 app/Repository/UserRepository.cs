@@ -10,6 +10,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Daily_Status_Report_task.Repository
 {
@@ -22,12 +24,18 @@ namespace Daily_Status_Report_task.Repository
             _context = context;
             _appSettings = appsettings.Value;
         }
-        public async Task<bool> GetPasswordChangeStatus(string email)
+        public async Task<bool> GetPasswordChangeStatus(string username)
         {
-            var user = await _context.UserTables.FindAsync(email);
+            var user = await _context.UserTables.Where(u => u.Username == username).FirstOrDefaultAsync();
 
             return user != null ? user.PasswordChangeStatus : false;
         }
+
+        public async Task<UserTable> GetUserByUsernameAndEmail(string username, string email)
+        {
+            return await _context.UserTables.FirstOrDefaultAsync(u => u.Username == username && u.Email == email);
+        }
+
 
 
         public async Task UpdatePasswordChangeStatus(int id, bool status)
@@ -41,9 +49,9 @@ namespace Daily_Status_Report_task.Repository
             }
         }
 
-        public UserTable Authenticate(string email, string password)
+        public UserTable Authenticate(string username, string password)
         {
-            var userInDb = _context.UserTables.FirstOrDefault(User => User.Email == email && User.Password == password);
+            var userInDb = _context.UserTables.FirstOrDefault(User => User.Username == username && User.Password == password);
             if (userInDb == null)
                 return null;
             //JWT Authentication  //Token
@@ -53,7 +61,7 @@ namespace Daily_Status_Report_task.Repository
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, userInDb.Id.ToString()),
+            new Claim(ClaimTypes.Name, userInDb.Id.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
@@ -84,33 +92,16 @@ namespace Daily_Status_Report_task.Repository
             return await _context.UserTables.FindAsync(id);
         }
 
-        public bool IsUniqueUser(string email, string name)
+        public bool IsUniqueUser(string username, string name)
         {
-            var user = _context.UserTables.FirstOrDefault(u => u.Email == email && u.Name == name);
+            var user = _context.UserTables.FirstOrDefault(u => u.Username == username && u.Name == name);
             if (user == null)
                 return true;
             else
                 return false;
-        }
+        }      
 
-        /* public UserTable Register(string email, string password, string name, string address, int departmentId, int roleId)
-         {
-             UserTable userTable = new UserTable()
-             {
-                 Name = name,
-                 Address = address,
-                 Email_Register_Date = DateTime.Now,                
-                 Email = email,
-                 Password = Encryption(password),
-                 Department_Id = departmentId,
-                 Role_Id = roleId,
-             };
-             _context.UserTables.Add(userTable);
-             _context.SaveChanges();
-             return userTable;
-         }*/
-
-        public UserTable Register(string email, string name, string address, int departmentId, int roleId)
+        public UserTable Register(string username, string email, string name, string address, int departmentId, int roleId)
         {
             string password = GenerateRandomPassword(); // Generate random password
             UserTable userTable = new UserTable()
@@ -118,6 +109,7 @@ namespace Daily_Status_Report_task.Repository
                 Name = name,
                 Address = address,
                 Email_Register_Date = DateTime.Now,
+                Username = username,
                 Email = email,
                 Password = password,
                 Department_Id = departmentId,
@@ -159,6 +151,7 @@ namespace Daily_Status_Report_task.Repository
             {
                 updateUser.Name = userTable.Name;
                 updateUser.Address = userTable.Address;
+                updateUser.Username = userTable.Username;
                 updateUser.Email = userTable.Email;
                 updateUser.Password = userTable.Password;
                 updateUser.Email_Register_Date = userTable.Email_Register_Date;

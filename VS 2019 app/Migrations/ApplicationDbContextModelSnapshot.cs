@@ -133,6 +133,9 @@ namespace Daily_Status_Report_task.Migrations
                     b.Property<int>("Role_Id")
                         .HasColumnType("int");
 
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Department_Id");

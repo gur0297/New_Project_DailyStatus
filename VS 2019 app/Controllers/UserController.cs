@@ -48,6 +48,16 @@ namespace Daily_Status_Report_task.Controllers
             return Ok(userId);
         }
 
+        [HttpGet("verify")]
+        public async Task<IActionResult> VerifyUser(string username, string email)
+        {
+            var user = await _userRepository.GetUserByUsernameAndEmail(username, email);
+            if (user == null)
+                return NotFound();
+
+            return Ok(user);
+        }
+
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync([FromBody] UserTable user)
         {
@@ -56,7 +66,7 @@ namespace Daily_Status_Report_task.Controllers
                 var isUniqueUser = _userRepository.IsUniqueUser(user.Email, user.Name);
                 if (!isUniqueUser) return BadRequest("User In Use");
 
-                var userInfo = _userRepository.Register(user.Email, user.Name, user.Address, user.Department_Id, user.Role_Id);
+                var userInfo = _userRepository.Register(user.Username,user.Email, user.Name, user.Address, user.Department_Id, user.Role_Id);
                 if (userInfo == null)
                     return BadRequest();
 
@@ -81,21 +91,20 @@ namespace Daily_Status_Report_task.Controllers
                     await _emailSenderRepository.SendEmailAsync(user.Email, "Welcome to Our 3G Dev Hub", emailBody);
                 }
             }
-            return Ok();
+            return Ok(user);
         }
 
-        [HttpGet("getPasswordChangeStatus/{email}")]
-        public async Task<IActionResult> GetPasswordChangeStatus(string email)
+        [HttpGet("getPasswordChangeStatus/{username}")]
+        public async Task<IActionResult> GetPasswordChangeStatus(string username)
         {
-            var passwordChangeStatus = await _userRepository.GetPasswordChangeStatus(email);
+            var passwordChangeStatus = await _userRepository.GetPasswordChangeStatus(username);
             return Ok(passwordChangeStatus);
         }
-
 
         [HttpPost("authenticateViaRandomPassword")]
         public IActionResult Authenticate(UserVM userVM)
         {
-            var user = _userRepository.Authenticate(userVM.Email, userVM.Password);
+            var user = _userRepository.Authenticate(userVM.Username, userVM.Password);
 
             if (user == null)
                 return BadRequest("Wrong Username & Password please enter valid Username & Password");
@@ -105,11 +114,11 @@ namespace Daily_Status_Report_task.Controllers
 
             return Ok(user);
         }
-
+        
         [HttpPost("authenticateViaEncryptPassword")]
         public IActionResult AuthenticateEncrypt(UserVM userVM)
         {
-            var user = _userRepository.Authenticate(userVM.Email, Encryption(userVM.Password));
+            var user = _userRepository.Authenticate(userVM.Username, Encryption(userVM.Password));
 
             if (user == null)
                 return BadRequest("Wrong Username & Password please enter valid Username & Password");
@@ -118,60 +127,7 @@ namespace Daily_Status_Report_task.Controllers
                 return BadRequest("Password has not been changed. Please use the original password for authentication.");
 
             return Ok(user);
-        }
-
-        /*  [HttpPost("authenticateViaRandomPassword")]
-          public IActionResult Authenticate(UserVM userVM)
-          {
-              var user = _userRepository.Authenticate(userVM.Email, userVM.Password);
-              if (user == null) return BadRequest("Wrong Username & Password please enter valid Usename & Password");  //400
-              return Ok(user); //200
-          }
-
-          [HttpPost("authenticateViaEncryptPassword")]
-          public IActionResult AuthenticateEncrypt(UserVM userVM)
-          {
-              var user = _userRepository.Authenticate(userVM.Email, Encryption(userVM.Password));
-              if (user == null) return BadRequest("Wrong Username & Password please enter valid Usename & Password");  //400
-              return Ok(user); //200
-          }*/
-
-        /*[HttpPut("updateUser")]
-        public async Task<IActionResult> UpdateUser([FromBody] UserTableDto userTableDto)
-        {
-            if (userTableDto == null) return BadRequest(ModelState);
-
-            // Get existing user from DB
-            var existingUser = _userRepository.GetUserById(userTableDto.Id).Result;
-
-            if (existingUser == null)
-                return NotFound("User Not Found");
-
-            var User = _mapper.Map<UserTableDto, UserTable>(userTableDto);
-
-            // Check if password has been updated
-            if (User.Password != existingUser.Password)
-            {
-                // Send email to confirm password update
-                string emailBody = "<html><body style=\"font-family: Arial, sans-serif; background-image: url('/Images/scenery-image.jpg'); background-repeat: no-repeat; background-size: cover; padding: 20px;\">"
-                    + "<div style=\"background-color: #ffffff; border-radius: 10px; padding: 20px; border: 2px solid #336699;\">"
-                    + $"<h2 style=\"color: #336699; margin-bottom: 20px;\">Dear {existingUser.Name},</h2>"
-                    + "<p style=\"color: #444; font-size: 16px;\">Your password has been successfully updated on our platform.</p>"
-                    + "<p style=\"color: #444; font-size: 16px;\">If you have any questions or need assistance, please feel free to contact us.</p>"
-                    + "<p style=\"color: #444; font-size: 16px;\">Thank you and enjoy your experience with us!</p>"
-                    + "<p style=\"color: #777; font-size: 14px;\">Best regards,</p>"
-                    + "<p style=\"color: #777; font-size: 14px;\">3G Family Developers</p>"
-                    + "<p style=\"color: #FF0000; font-size: 14px;\">You've successfully update your password</p>"
-                    + "</div>"
-                    + "</body></html>";
-
-                // Send email to confirm password update
-                await _emailSenderRepository.SendEmailAsync(existingUser.Email, " Your Password Has Been Updated at 3G Dev Hub", emailBody);
-            }
-
-            _userRepository.UpdateUser(User);
-            return Ok(User);
-        }        */
+        }        
 
         [HttpPut("updateUser")]
         public async Task<IActionResult> UpdateUser([FromBody] UserTableDto userTableDto)
@@ -214,7 +170,6 @@ namespace Daily_Status_Report_task.Controllers
             _userRepository.UpdateUser(User);
             return Ok(User);
         }
-
 
         [HttpPut("updateUserDetail")]
         public async Task<IActionResult> UpdateUserDetail([FromBody] UserTablesDto userTablesDto)

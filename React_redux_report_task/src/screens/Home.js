@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './HomePage.css';
+import './CSS/HomePage.css';
 import { fadeIn, bounce } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
-import gifBackground from '../1.gif';
+import gifBackground from './gifs/1.gif';
 
 const HomePage = () => {
   const [showAnimation, setShowAnimation] = useState(false);

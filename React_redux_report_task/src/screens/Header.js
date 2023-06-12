@@ -1,12 +1,17 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import e from "../e.png";
+import e from "./images/e.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInfoCircle,
   faPhone,
   faRightFromBracket,
   faGlobe,
+  faStreetView,
+  faPaperclip,
+  faIdCardClip,
+  faGears,
+  faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../actions/authSlice.js";
@@ -59,53 +64,115 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNav">
-          {token ? (
-            <button
-              className="nav-link text-warning"
-              onClick={handleLogout}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                display: "inline-flex", // Add this line to make the button inline
-                alignItems: "center", // Add this line to align the button content vertically
-                padding: "0", // Add this line to remove any padding
-              }}
-            >
-              <FontAwesomeIcon
-                icon={faRightFromBracket}
-                className="mr-2 fa-lg"
-              />
-              <span style={{ fontWeight: "bold", fontSize: "larger" }}>
-                Logout
-              </span>
-            </button>
-          ) : (
-            <Link to="/log" className="nav-link text-white-bold">
-              <FontAwesomeIcon icon={faGlobe} className="mr-1" />
-              <span style={{ fontWeight: "bold", fontSize: "larger" }}>
-                Login
-              </span>
-            </Link>
-          )}
+          <ul className="navbar-nav mr-auto align-items-center">
+            {token ? (
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-danger btn btn-link"
+                  onClick={handleLogout}
+                >
+                  <FontAwesomeIcon
+                    icon={faRightFromBracket}
+                    className="mr-2 fa-lg"
+                  />
+                  <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                    Logout
+                  </span>
+                </Link>
+              </li>
+            ) : (
+              <li className="nav-item">
+                <Link to="/log" className="nav-link text-primary">
+                  <FontAwesomeIcon icon={faGlobe} className="mr-1" />
+                  <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                    Login
+                  </span>
+                </Link>
+              </li>
+            )}
+
+            <li className="nav-item">
+              <Link to="/sadTb" className="nav-link text-warning">
+                <FontAwesomeIcon
+                  icon={faGears}
+                  beatFade
+                  className="mr-2 fa-lg"
+                />
+                <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                  Super Admin Table
+                </span>
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/mTb" className="nav-link text-warning">
+                <FontAwesomeIcon
+                  icon={faStreetView}
+                  beatFade
+                  className="mr-2 fa-lg"
+                />
+                <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                  Manager's Table
+                </span>
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/myStatus" className="nav-link text-warning">
+                <FontAwesomeIcon icon={faPaperclip} className="mr-2 fa-lg" />
+                <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                  My Status
+                </span>
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/myStatus" className="nav-link text-warning">
+                <FontAwesomeIcon
+                  icon={faChartLine}
+                  beat
+                  className="mr-2 fa-lg"
+                />
+                <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                  Dashboard
+                </span>
+              </Link>
+            </li>
+          </ul>
 
           <ul className="navbar-nav ml-auto">
-            <div className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link to="/profile" className="nav-link text-warning">
+                <FontAwesomeIcon
+                  icon={faIdCardClip}
+                  beatFade
+                  className="mr-2 fa-lg"
+                />
+                <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                  My Profile
+                </span>
+              </Link>
+            </li>
+
+            <li className="nav-item">
               <Link to="/about" className="nav-link text-success">
                 <FontAwesomeIcon icon={faInfoCircle} className="mr-2 fa-lg" />
                 <span style={{ fontWeight: "bold", fontSize: "larger" }}>
                   About
                 </span>
               </Link>
+            </li>
 
+            <li className="nav-item">
               <Link to="/contact" className="nav-link text-danger">
                 <FontAwesomeIcon icon={faPhone} className="mr-2 fa-lg" />
                 <span style={{ fontWeight: "bold", fontSize: "larger" }}>
                   Contact
                 </span>
               </Link>
-            </div>
+            </li>
           </ul>
         </div>
       </nav>
@@ -114,3 +181,4 @@ const Header = () => {
 };
 
 export default Header;
+
