@@ -188,7 +188,7 @@ export const verifyUser = createAsyncThunk(
 // Async thunk for resetting password
 export const resetPassword = createAsyncThunk(
   "auth/resetPassword",
-  async ({id, username, password }, thunkAPI) => {
+  async ({ id, username, password }, thunkAPI) => {
     try {
       const response = await fetch(
         `https://localhost:44385/api/user/updateUser`,
@@ -197,7 +197,7 @@ export const resetPassword = createAsyncThunk(
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({id, username, password }),
+          body: JSON.stringify({ id, username, password }),
         }
       );
 
@@ -213,7 +213,6 @@ export const resetPassword = createAsyncThunk(
     }
   }
 );
-
 // Slice
 const authSlice = createSlice({
   name: "auth",
@@ -231,6 +230,7 @@ const authSlice = createSlice({
     isResetting: false,
     verifyError: null,
     resetError: null,
+    users: [],
   },
   reducers: {
     loginStart: (state) => {
@@ -338,7 +338,7 @@ const authSlice = createSlice({
     [resetPassword.rejected]: (state, { payload }) => {
       state.isResetting = false;
       state.resetError = payload;
-    },
+    },   
   },
 });
 

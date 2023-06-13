@@ -11,6 +11,7 @@ import Profile from "./screens/Profile";
 import SuperAdminTable from "./screens/SuperAdminTable";
 import Dashboard from "./screens/Dashboard";
 import ForgotPassword from "./screens/ForgotPassword";
+import UserData from "./screens/UserData";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="forgotpwd" element={<ForgotPassword />} />
+          <Route path="users" element={<UserData />} />
         </Routes>
       </BrowserRouter>
     </div>

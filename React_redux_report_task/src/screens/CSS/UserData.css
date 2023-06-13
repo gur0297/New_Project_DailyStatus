@@ -1,0 +1,79 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.data-table-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0;
+    background-color: #262d31; /* Dark background similar to GPT-3 chat */
+    color: #f5f5f5; /* Light text color for contrast */
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+  
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+  
+.btn-success {
+    color: #f5f5f5; /* Light text color for contrast */
+    background-color: #5cb85c; /* Green button for 'Edit' */
+}
+  
+.btn-danger {
+    color: #f5f5f5; /* Light text color for contrast */
+    background-color: #d9534f; /* Red button for 'Delete' */
+}
+
+/* Vertical line for columns */
+.data-table-container .rdt_TableCol {
+    border-right: 1px solid #ddd; /* Adjust color as needed */
+}
+
+.data-table-container .rdt_TableCol:last-child {
+    border-right: none; /* Avoids right border on the last column */
+}
+
+/* Vertical line for each cell */
+.data-table-container .rdt_TableCell {
+    border-right: 1px solid #ddd; /* Adjust color as needed */
+}
+
+.data-table-container .rdt_TableRow {
+    border-bottom: 1px solid #ddd; /* If you also want horizontal lines between rows */
+}
+
+.data-table-container .rdt_TableCol:last-child .rdt_TableCell {
+    border-right: none; /* Avoids right border on the last cell */
+}
+
+.data-table-container .rdt_TableRow:last-child {
+    border-bottom: none; /* Avoids bottom border on the last row if you're using horizontal lines */
+}
+
+/* Modify users title */
+.users-title {
+    text-align: center;
+    color: #e2cd12; /* Dark blue color */
+}
+
+.filter-export-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  

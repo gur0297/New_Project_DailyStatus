@@ -12,9 +12,11 @@ namespace Daily_Status_Report_task.Models.DTO
         public string Address { get; set; }
         public string Username { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        
         public DateTime Email_Register_Date { get; set; }
         public int Department_Id { get; set; }
         public int Role_Id { get; set; }
+        public bool Is_Deleted { get; set; }
+        public bool PasswordChangeStatus { get; set; }
     }
 }

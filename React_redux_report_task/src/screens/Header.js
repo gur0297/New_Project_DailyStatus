@@ -12,6 +12,7 @@ import {
   faIdCardClip,
   faGears,
   faChartLine,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../actions/authSlice.js";
@@ -129,7 +130,7 @@ const Header = () => {
             </li>
 
             <li className="nav-item">
-              <Link to="/myStatus" className="nav-link text-warning">
+              <Link to="/dashboard" className="nav-link text-warning">
                 <FontAwesomeIcon
                   icon={faChartLine}
                   beat
@@ -137,6 +138,19 @@ const Header = () => {
                 />
                 <span style={{ fontWeight: "bold", fontSize: "larger" }}>
                   Dashboard
+                </span>
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to="/users" className="nav-link text-warning">
+                <FontAwesomeIcon
+                  icon={faUsers}
+                  flip
+                  className="mr-2 fa-lg"
+                />
+                <span style={{ fontWeight: "bold", fontSize: "larger" }}>
+                  Users Data
                 </span>
               </Link>
             </li>

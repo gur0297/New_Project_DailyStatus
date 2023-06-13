@@ -4,13 +4,34 @@ import { verifyUser, resetPassword } from "../actions/authSlice.js";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./CSS/ForgotPassword.css";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import backgroundImage from "./gifs/g.gif"; //import your gif file here
+import "./CSS/ForgotPassword.css";
+
+// Create validation schemas
+const verifySchema = Yup.object().shape({
+  username: Yup.string().required("Username is required"),
+  email: Yup.string().email().required("Email is required"),
+});
+
+const resetSchema = Yup.object().shape({
+  newPassword: Yup.string()
+    .required("New password is required")
+    .min(8, "Password must be at least 8 characters")
+    .matches(/[a-z]/, "Password must contain a lowercase letter")
+    .matches(/[A-Z]/, "Password must contain an uppercase letter")
+    .matches(/\d/, "Password must contain a number")
+    .matches(
+      /[!@#$%^&*(),.?":{}|<>]/,
+      "Password must contain a special character"
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("newPassword")], "Passwords do not match")
+    .required("Confirm password is required"),
+});
 
 const ForgotPassword = () => {
-  const [verifyForm, setVerifyForm] = useState({ username: "", email: "" });
-  const [resetForm, setResetForm] = useState({
-    newPassword: "",
-    confirmPassword: "",
-  });
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [id, setId] = useState(null);
@@ -21,33 +42,43 @@ const ForgotPassword = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleVerifySubmit = (e) => {
-    e.preventDefault();
-    dispatch(verifyUser(verifyForm))
-      .unwrap()
-      .then((user) => {
-        setShowPasswordForm(true);
-        setId(user.id);
-        Swal.fire({
-          title: "Success",
-          text: "User is successfully verified",
-          icon: "success",
-          confirmButtonText: "OK",
+  // Formik for verify form
+  const verifyFormik = useFormik({
+    initialValues: { username: "", email: "" },
+    validationSchema: verifySchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
+      dispatch(verifyUser(values))
+        .unwrap()
+        .then((user) => {
+          setShowPasswordForm(true);
+          setId(user.id);
+          Swal.fire({
+            title: "Success",
+            text: "User is successfully verified",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          setSubmitting(false);
+        })
+        .catch((error) => {
+          setErrorMessage(error.message);
+          setSubmitting(false);
         });
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  };
+    },
+  });
 
-  const handleResetSubmit = (e) => {
-    e.preventDefault();
-    if (resetForm.newPassword === resetForm.confirmPassword) {
+  // Formik for reset form
+  const resetFormik = useFormik({
+    initialValues: { newPassword: "", confirmPassword: "" },
+    validationSchema: resetSchema,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(true);
       dispatch(
         resetPassword({
           id,
-          username: verifyForm.username,
-          password: resetForm.newPassword,
+          username: verifyFormik.values.username,
+          password: values.newPassword,
         })
       )
         .unwrap()
@@ -60,58 +91,140 @@ const ForgotPassword = () => {
           }).then(() => {
             navigate("/");
           });
+          setSubmitting(false);
         })
         .catch((error) => {
           setErrorMessage(error.message);
+          setSubmitting(false);
         });
-    } else {
-      setErrorMessage("Passwords do not match");
-    }
-  };
+    },
+  });
 
+  // ...
   return (
-    <div className="container">
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+      }}
+    >
       <div className="box">
         {!showPasswordForm ? (
-          <form onSubmit={handleVerifySubmit}>
+          <form onSubmit={verifyFormik.handleSubmit}>
             <input
+              name="username"
               type="text"
               placeholder="Username"
-              value={verifyForm.username}
-              onChange={(e) =>
-                setVerifyForm({ ...verifyForm, username: e.target.value })
-              }
+              value={verifyFormik.values.username}
+              onChange={verifyFormik.handleChange}
+              onBlur={verifyFormik.handleBlur}
             />
+            {verifyFormik.touched.username && verifyFormik.errors.username ? (
+              <div style={{ color: "white", fontWeight: "bold" }}>
+                {verifyFormik.errors.username}
+              </div>
+            ) : null}
             <input
+              name="email"
               type="email"
               placeholder="Email"
-              value={verifyForm.email}
-              onChange={(e) =>
-                setVerifyForm({ ...verifyForm, email: e.target.value })
-              }
+              value={verifyFormik.values.email}
+              onChange={verifyFormik.handleChange}
+              onBlur={verifyFormik.handleBlur}
             />
+            {verifyFormik.touched.email && verifyFormik.errors.email ? (
+              <div style={{ color: "white", fontWeight: "bold" }}>
+                {verifyFormik.errors.email}
+              </div>
+            ) : null}
             <button type="submit">
               {isVerifying ? "Verifying..." : "Verify"}
             </button>
           </form>
         ) : (
-          <form onSubmit={handleResetSubmit}>
+          <form onSubmit={resetFormik.handleSubmit}>
             <input
+              name="newPassword"
               type="password"
               placeholder="New Password"
-              value={resetForm.newPassword}
-              onChange={(e) =>
-                setResetForm({ ...resetForm, newPassword: e.target.value })
-              }
+              value={resetFormik.values.newPassword}
+              onChange={resetFormik.handleChange}
+              onBlur={resetFormik.handleBlur}
             />
+            <ul className="password-conditions">
+              <li
+                style={{
+                  color:
+                    resetFormik.values.newPassword.length >= 8
+                      ? "white"
+                      : "yellow",
+                }}
+              >
+                Password must be at least 8 characters
+              </li>
+              <li
+                style={{
+                  color: /[a-z]/.test(resetFormik.values.newPassword)
+                    ? "white"
+                    : "yellow",
+                }}
+              >
+                Password must contain a lowercase letter
+              </li>
+              <li
+                style={{
+                  color: /[A-Z]/.test(resetFormik.values.newPassword)
+                    ? "white"
+                    : "yellow",
+                }}
+              >
+                Password must contain an uppercase letter
+              </li>
+              <li
+                style={{
+                  color: /\d/.test(resetFormik.values.newPassword)
+                    ? "white"
+                    : "yellow",
+                }}
+              >
+                Password must contain a number
+              </li>
+              <li
+                style={{
+                  color: /[!@#$%^&*(),.?":{}|<>]/.test(
+                    resetFormik.values.newPassword
+                  )
+                    ? "white"
+                    : "yellow",
+                }}
+              >
+                Password must contain a special character
+              </li>
+            </ul>
+            {resetFormik.touched.newPassword &&
+            resetFormik.errors.newPassword ? (
+              <div style={{ color: "white", fontWeight: "bold" }}>
+                {resetFormik.errors.newPassword}
+              </div>
+            ) : null}
             <input
+              name="confirmPassword"
               type="password"
               placeholder="Confirm Password"
-              value={resetForm.confirmPassword}
-              onChange={(e) =>
-                setResetForm({ ...resetForm, confirmPassword: e.target.value })
-              }
+              value={resetFormik.values.confirmPassword}
+              onChange={resetFormik.handleChange}
+              onBlur={resetFormik.handleBlur}
             />
+            {resetFormik.touched.confirmPassword &&
+            resetFormik.errors.confirmPassword ? (
+              <div style={{ color: "white", fontWeight: "bold" }}>
+                {resetFormik.errors.confirmPassword}
+              </div>
+            ) : null}
             <button type="submit">
               {isResetting ? "Resetting..." : "Reset Password"}
             </button>
@@ -122,6 +235,7 @@ const ForgotPassword = () => {
       </div>
     </div>
   );
+  // ...
 };
 
 export default ForgotPassword;
