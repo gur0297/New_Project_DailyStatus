@@ -8,7 +8,7 @@ namespace Daily_Status_Report_task.Repository.IRepository
 {
     public interface IStatusRepository
     {
-        IEnumerable<StatusTable> GetAllReports();
+        IEnumerable<StatusTable> GetAllReports(int pageNumber, int pageSize);
         StatusTable GetReportById(int id);
         void CreateReport(StatusTable report);
         void UpdateReport(StatusTable report);

@@ -6,6 +6,7 @@ import { CSVLink } from "react-csv";
 import "./CSS/UserData.css";
 import { fetchDepartments, fetchRoles } from "../actions/authSlice.js";
 import Modal from "react-modal";
+import Swal from "sweetalert2";
 
 const UserData = () => {
   const dispatch = useDispatch();
@@ -53,10 +54,8 @@ const UserData = () => {
 
         return {
           ...user,
-          department_Id: departmentName,
-          role_Id: roleName,
-          is_Deleted: String(user.is_Deleted), // Convert boolean to string
-          passwordChangeStatus: String(user.passwordChangeStatus), // Convert boolean to string
+          departmentName,
+          roleName,
         };
       });
       setProcessedUsers(usersWithNames);
@@ -70,15 +69,23 @@ const UserData = () => {
   };
 
   const handleUpdate = () => {
-    debugger
     console.log(userBeingEdited);
     dispatch(updateUser({ userData: userBeingEdited }))
-      .then(() => {
-       // window.location.reload();
+      .then(() => {       
         console.log("Update successful!");
+        Swal.fire(
+          "Updated!",
+          "The user has been updated successfully.",
+          "success"
+        );
       })
       .catch((error) => {
         console.log("Update failed:", error);
+        Swal.fire(
+          "Failed!",
+          "The user update failed.",
+          "error"
+        );
       })
       .finally(() => {
         setEditModalVisible(false);
@@ -119,21 +126,35 @@ const UserData = () => {
       const selectedIds = selectedRows.map((row) => row.id);
       dispatch(deleteUser(selectedIds))
         .then(() => {
-          window.location.reload();
           // Handle the success case
-          // You can show a success message or perform any additional actions
           console.log("Deletion successful!");
+          Swal.fire({
+            title: "Deleted!",
+            text: "The selected users have been deleted successfully.",
+            icon: "success",
+            confirmButtonText: "OK"
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
         })
         .catch((error) => {
           // Handle the error case
-          // You can show an error message or perform any error handling
           console.log("Deletion failed:", error);
+          Swal.fire(
+            "Failed!",
+            "The deletion failed.",
+            "error"
+          );
         })
         .finally(() => {
           setSelectedRows([]);
         });
     }
   };
+
 
   const handleExportCSV = () => {
     //setClearSelected(true);
@@ -145,8 +166,8 @@ const UserData = () => {
       Email_Registered: user.email_Register_Date,
       Department: user.department_Id,
       Role: user.role_Id,
-      Is_Deleted: user.is_Deleted,
-      Password_Change_Status: user.passwordChangeStatus,
+      Is_Deleted: String(user.is_Deleted),
+      Password_Change_Status: String(user.passwordChangeStatus),
     }));
     return csvData;
   };
@@ -173,29 +194,38 @@ const UserData = () => {
       sortable: true,
     },
     {
+      name: "Password",
+      selector: "password",
+      sortable: true,
+    },
+    {
       name: "Email",
       selector: "email",
       sortable: true,
     },
     {
       name: "Department",
-      selector: "department_Id",
+      selector: "departmentName",
       sortable: true,
     },
     {
       name: "Role",
-      selector: "role_Id",
+      selector: "roleName",
       sortable: true,
     },
     {
       name: "Is_Deleted",
       selector: "is_Deleted",
       sortable: true,
+      // Add a cell renderer to convert the boolean value to a string
+      cell: (row) => String(row.is_Deleted),
     },
     {
       name: "Password Change Status",
       selector: "passwordChangeStatus",
       sortable: true,
+      // Add a cell renderer to convert the boolean value to a string
+      cell: (row) => String(row.passwordChangeStatus),
     },
 
     {
@@ -312,7 +342,10 @@ const UserData = () => {
               type="text"
               value={userBeingEdited?.address || ""}
               onChange={(e) =>
-                setUserBeingEdited({ ...userBeingEdited, address: e.target.value })
+                setUserBeingEdited({
+                  ...userBeingEdited,
+                  address: e.target.value,
+                })
               }
             />
           </label>
@@ -325,7 +358,10 @@ const UserData = () => {
               type="text"
               value={userBeingEdited?.username || ""}
               onChange={(e) =>
-                setUserBeingEdited({ ...userBeingEdited, username: e.target.value })
+                setUserBeingEdited({
+                  ...userBeingEdited,
+                  username: e.target.value,
+                })
               }
             />
           </label>
@@ -338,31 +374,23 @@ const UserData = () => {
               type="text"
               value={userBeingEdited?.email || ""}
               onChange={(e) =>
-                setUserBeingEdited({ ...userBeingEdited, email: e.target.value })
+                setUserBeingEdited({
+                  ...userBeingEdited,
+                  email: e.target.value,
+                })
               }
             />
           </label>
-          <label
-            className="form-control text-danger"
-            style={{ color: "black", fontWeight: "bold" }}
-          >
+          <label>
             Department:
             <select
               value={userBeingEdited?.department_Id || ""}
-              onChange={(e) => {
-                const departmentId = parseInt(e.target.value, 10);
-              
-                if (isNaN(departmentId)) {
-                  console.error('Error parsing department ID:', e.target.value);
-                  return;
-                }
-              
+              onChange={(e) =>
                 setUserBeingEdited({
                   ...userBeingEdited,
-                  department_Id: departmentId,
-                });
-              }}
-              
+                  department_Id: parseInt(e.target.value),
+                })
+              }
             >
               {departments.map((department) => (
                 <option key={department.id} value={department.id}>
@@ -371,10 +399,7 @@ const UserData = () => {
               ))}
             </select>
           </label>
-          <label
-            className="form-control text-danger"
-            style={{ color: "black", fontWeight: "bold" }}
-          >
+          <label>
             Role:
             <select
               value={userBeingEdited?.role_Id || ""}
@@ -392,6 +417,7 @@ const UserData = () => {
               ))}
             </select>
           </label>
+
           <label
             className="form-control text-danger"
             style={{ color: "black", fontWeight: "bold" }}

@@ -121,7 +121,7 @@ namespace Daily_Status_Report_task.Repository
         }
 
 
-        public string GenerateRandomPassword()
+        /*public string GenerateRandomPassword()
         {
             // Generate a random password using a combination of letters, numbers, and special characters
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
@@ -129,7 +129,36 @@ namespace Daily_Status_Report_task.Repository
             string password = new string(Enumerable.Repeat(chars, 8) // Change 8 to the desired password length
                 .Select(s => s[random.Next(s.Length)]).ToArray());
             return password;
+        }*/
+
+        public string GenerateRandomPassword()
+        {
+            const string uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string lowercase = "abcdefghijklmnopqrstuvwxyz";
+            const string digits = "0123456789";
+            const string symbols = "!@#$%^&*()";
+            const string allChars = uppercase + lowercase + digits + symbols;
+
+            Random random = new Random();
+
+            // Select one character from each set
+            string password = new string(new char[] {
+        uppercase[random.Next(uppercase.Length)],
+        lowercase[random.Next(lowercase.Length)],
+        digits[random.Next(digits.Length)],
+        symbols[random.Next(symbols.Length)]
+    });
+
+            // Fill the rest of the password length from the combined character set
+            password += new string(Enumerable.Repeat(allChars, 4) // Change 4 to the desired remaining password length
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+
+            // Shuffle the password to ensure the mandatory characters are randomly distributed
+            password = new string(password.ToCharArray().OrderBy(x => random.Next()).ToArray());
+
+            return password;
         }
+
 
 
 
@@ -152,8 +181,7 @@ namespace Daily_Status_Report_task.Repository
                 updateUser.Name = userTable.Name;
                 updateUser.Address = userTable.Address;
                 updateUser.Username = userTable.Username;
-                updateUser.Email = userTable.Email;
-                updateUser.Password = userTable.Password;
+                updateUser.Email = userTable.Email;                
                 updateUser.Email_Register_Date = userTable.Email_Register_Date;
                 updateUser.Department_Id = userTable.Department_Id;
                 updateUser.Role_Id = userTable.Role_Id;

@@ -16,7 +16,7 @@ namespace Daily_Status_Report_task.Models.DTO
         public string Obstacle { get; set; }
         public string NextDayPlan { get; set; }
         public int User_Id { get; set; }
-        public TaskStatus Status { get; set; }
-
+        public string Status { get; set; }
     }
+
 }

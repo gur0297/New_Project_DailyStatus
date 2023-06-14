@@ -30,10 +30,19 @@ namespace Daily_Status_Report_task.Repository
             _context.SaveChanges();
         }
 
-        public IEnumerable<StatusTable> GetAllReports()
+        /*public IEnumerable<StatusTable> GetAllReports()
         {
             return _context.StatusTables.ToList();
+        }*/
+
+        public IEnumerable<StatusTable> GetAllReports(int pageNumber, int pageSize)
+        {
+            return _context.StatusTables
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
+
 
         public StatusTable GetReportById(int id)
         {
